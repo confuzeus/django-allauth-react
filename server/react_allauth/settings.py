@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "allauth.account",
     "allauth.headless",
+    "react_allauth.crud",
 ]
 
 MIDDLEWARE = [
