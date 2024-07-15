@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "server"
+version = "0.1.0"
+description = "Django appp"
+authors = ["Josh Karamuth <hello@joshkaramuth.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
