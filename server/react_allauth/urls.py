@@ -23,4 +23,5 @@ urlpatterns = [
     # Include the API endpoints:
     path("_allauth/", include("allauth.headless.urls")),
     path("admin/", admin.site.urls),
+    path("", include("react_allauth.crud.urls")),
 ]
