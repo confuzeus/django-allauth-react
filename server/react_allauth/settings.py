@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.headless",
     "react_allauth.crud",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -135,9 +137,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 HEADLESS_FRONTEND_URLS = {
-    "account_confirm_email": "http://localhost:3000/account/verify-email/{key}",
-    "account_reset_password_from_key": "http://localhost:3000/account/password/reset/key/{key}",
-    "account_signup": "http://localhost:3000/account/signup",
+    "account_confirm_email": "http://localhost:5173/account/verify-email/{key}",
+    "account_reset_password_from_key": "http://localhost:5173/account/password/reset/key/{key}",
+    "account_signup": "http://localhost:5173/account/signup",
 }
 
 HEADLESS_ONLY = True
@@ -145,3 +147,7 @@ HEADLESS_ONLY = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+
+CORS_ALLOW_CREDENTIALS = True
