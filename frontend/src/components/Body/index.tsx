@@ -10,10 +10,12 @@ import CrudBody from "../CrudBody";
 export default function Body() {
   const isAuthenticated = useAtomValue(sessionStore.isAuthenticatedAtom);
   const currentAction = useAtomValue(genericStore.currentActionAtom);
-
+  const isLoading = useAtomValue(genericStore.isLoadingAtom);
   let body;
 
-  if (currentAction === CurrentAction.Signin) {
+  if (isLoading) {
+    body = <p style={{ textAlign: "center" }}>Loading...</p>;
+  } else if (currentAction === CurrentAction.Signin) {
     body = <LoginForm />;
   } else if (currentAction === CurrentAction.Authenticated) {
     body = <CrudBody />;
