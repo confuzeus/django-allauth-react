@@ -1,7 +1,6 @@
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
   Container,
-  CssBaseline,
   Box,
   Avatar,
   Typography,
@@ -32,7 +31,6 @@ export default function LoginForm() {
   }
   return (
     <Container component="section" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,
