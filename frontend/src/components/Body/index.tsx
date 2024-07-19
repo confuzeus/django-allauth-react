@@ -7,6 +7,7 @@ import { sessionStore } from "../../store/sessions";
 import LogoutButton from "../LogoutButton";
 import CrudBody from "../CrudBody";
 import AuthButtonGroup from "../AuthButtonGroup";
+import SignupForm from "../SignupForm";
 
 export default function Body() {
   const isAuthenticated = useAtomValue(sessionStore.isAuthenticatedAtom);
@@ -19,7 +20,7 @@ export default function Body() {
   } else if (currentAction === CurrentAction.Signin) {
     body = <LoginForm />;
   } else if (currentAction === CurrentAction.Signup) {
-    body = <p>Signup form</p>;
+    body = <SignupForm />;
   } else if (currentAction === CurrentAction.Authenticated) {
     body = <CrudBody />;
   }
