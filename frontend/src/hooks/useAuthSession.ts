@@ -32,6 +32,7 @@ export default function useAuthSession() {
         displayName: session.data.user.display,
       });
       setCurrentAction(CurrentAction.Authenticated);
+      setIsLoading(false);
     } else {
       setIsAuthenticated(false);
       setUser(null);
@@ -43,7 +44,14 @@ export default function useAuthSession() {
       setUser(null);
       setCurrentAction(CurrentAction.Signin);
     };
-  }, [isSuccess, session, setIsAuthenticated, setUser, setCurrentAction]);
+  }, [
+    isSuccess,
+    session,
+    setIsAuthenticated,
+    setUser,
+    setCurrentAction,
+    setIsLoading,
+  ]);
 
   useEffect(() => {
     setIsLoading(isPending);
@@ -56,6 +64,7 @@ export default function useAuthSession() {
   useEffect(() => {
     if (isError) {
       setErrors((errors) => [...errors, error]);
+      setIsLoading(false);
     }
-  }, [isError, error, setErrors]);
+  }, [isError, error, setErrors, setIsLoading]);
 }
