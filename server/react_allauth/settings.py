@@ -139,9 +139,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 HEADLESS_FRONTEND_URLS = {
-    "account_confirm_email": "http://localhost:5173/account/verify-email/{key}",
-    "account_reset_password_from_key": "http://localhost:5173/account/password/reset/key/{key}",
-    "account_signup": "http://localhost:5173/account/signup",
+    "account_confirm_email": "http://localhost:5173",
+    "account_reset_password_from_key": "http://localhost:5173",
+    "account_signup": "http://localhost:5173",
+    "socialaccount_login_error": "http://localhost:5173",
 }
 
 HEADLESS_ONLY = True
@@ -155,3 +156,5 @@ CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
+
+ALLOWED_HOSTS = ["localhost", "localhost:5173"]
