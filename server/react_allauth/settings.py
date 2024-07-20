@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.headless",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
     "react_allauth.crud",
     "corsheaders",
 ]
