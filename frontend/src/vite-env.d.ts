@@ -2,7 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_API_URL: string;
-  // more env variables...
+  readonly GOOGLE_LOGIN_PROVIDER_ID: string;
 }
 
 interface ImportMeta {
