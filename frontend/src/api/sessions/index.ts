@@ -9,16 +9,18 @@ async function getSession() {
     `${import.meta.env.VITE_API_URL}/_allauth/browser/v1/auth/session`,
     {
       credentials: "include",
-    },
+    }
   );
   const responseData:
     | GetSessionSuccessResponse
     | GetSessionNotAuthenticatedResponse
     | GetSessionInvalidSessionResponse = await response.json();
-  if (!response.ok) {
+
+  const okCodes = [200, 401, 410];
+  if (okCodes.indexOf(response.status) === -1) {
     throw new Error(JSON.stringify(responseData));
   }
-  return responseData as GetSessionSuccessResponse;
+  return { isAuthenticated: responseData.meta.is_authenticated };
 }
 
 export const sessionsApi = { getSession };

@@ -1,27 +1,21 @@
-import { ButtonGroup, Button } from "@mui/material";
-import { genericStore } from "../store/generic";
-import { CurrentAction } from "../store/generic/types";
-import { useAtom } from "jotai";
+import { Button, ButtonGroup } from "@mui/material";
+import { useLocation, useNavigate } from "react-router";
 
 export default function AuthButtonGroup() {
-  const [currentAction, setCurrentAction] = useAtom(
-    genericStore.currentActionAtom,
-  );
-
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <ButtonGroup variant="contained" aria-label="Login or Signup">
       <Button
-        onClick={() => setCurrentAction(CurrentAction.Signin)}
-        variant={
-          currentAction === CurrentAction.Signin ? "outlined" : "contained"
-        }
+        onClick={() => navigate("/auth/login")}
+        variant={location.pathname === "/auth/login" ? "outlined" : "contained"}
       >
         Login
       </Button>
       <Button
-        onClick={() => setCurrentAction(CurrentAction.Signup)}
+        onClick={() => navigate("/auth/signup")}
         variant={
-          currentAction === CurrentAction.Signup ? "outlined" : "contained"
+          location.pathname === "/auth/signup" ? "outlined" : "contained"
         }
       >
         Sign Up

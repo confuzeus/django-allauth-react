@@ -1,19 +1,20 @@
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
-  Container,
-  Box,
   Avatar,
-  Typography,
-  TextField,
-  FormControlLabel,
-  Checkbox,
+  Box,
   Button,
+  Checkbox,
+  Container,
+  FormControlLabel,
   Grid,
   Link,
+  TextField,
+  Typography,
 } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { loginMutation } from "../../api/accounts/login";
 import { useState } from "react";
+import { Link as RouterLink } from "react-router";
+import { loginMutation } from "../../api/accounts/login";
 
 export default function LoginForm() {
   const queryClient = useQueryClient();
@@ -88,7 +89,7 @@ export default function LoginForm() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link component={RouterLink} to="/auth/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

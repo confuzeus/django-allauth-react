@@ -1,5 +1,5 @@
-import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
 
 import { Button, Container, List, ListItem, ListItemText } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -8,6 +8,7 @@ import {
   deleteThingMutation,
   listThingsQuery,
 } from "../../api/things";
+import LogoutButton from "../LogoutButton";
 
 interface CrudThingProps {
   id: number;
@@ -74,7 +75,17 @@ function CreateButton() {
 
 export default function CrudBody() {
   return (
-    <Container maxWidth="xs" component="section">
+    <Container maxWidth="xs" component="section" sx={{ mt: 8 }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "2rem",
+        }}
+      >
+        <LogoutButton />
+      </div>
+
       <div>
         <div
           style={{
